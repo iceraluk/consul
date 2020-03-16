@@ -12,10 +12,10 @@ class Admin::BudgetPhases::PhasesComponent < ApplicationComponent
     end
 
     def start_date(phase)
-      l(phase.starts_at.to_date) if phase.starts_at.present?
+      l(phase.starts_at, format: :long) if phase.starts_at.present?
     end
 
     def end_date(phase)
-      l(phase.ends_at.to_date) if phase.ends_at.present?
+      l(phase.ends_at, format: :long) if phase.ends_at.present?
     end
 end

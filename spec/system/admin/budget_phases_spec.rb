@@ -21,5 +21,31 @@ describe "Admin budget phases" do
       expect(budget.current_phase.description).to include("New description of the phase.")
       expect(budget.current_phase.enabled).to be(false)
     end
+
+    scenario "Enable and disable a phase is possible from the budget view", :js do
+      visit edit_admin_budget_path(budget)
+      phase = budget.phases.enabled.sample
+
+      expect(phase.enabled).to be true
+      within "#budget_phase_#{phase.id}" do
+        expect(find("#phase_enabled")).to be_checked
+        uncheck "phase_enabled"
+      end
+
+      visit edit_admin_budget_path(budget)
+
+      within "#budget_phase_#{phase.id}" do
+        expect(find("#phase_enabled")).not_to be_checked
+        expect(phase.reload.enabled).to be false
+        check "phase_enabled"
+      end
+
+      visit edit_admin_budget_path(budget)
+
+      within "#budget_phase_#{phase.id}" do
+        expect(find("#phase_enabled")).to be_checked
+      end
+      expect(phase.reload.enabled).to be true
+    end
   end
 end

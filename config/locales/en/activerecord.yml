@@ -229,6 +229,7 @@ en:
         ends_at: "End date"
         starts_at: "Start date"
       budget/phase/translation:
+        name: "Phase's Name"
         description: "Description"
         summary: "Summary"
       comment:

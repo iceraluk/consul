@@ -9,11 +9,11 @@ class Budgets::PhasesComponent < ApplicationComponent
   private
 
     def phases
-      budget.published_phases
+      budget.published_phases.to_a
     end
 
     def phase_name(phase)
-      t("budgets.phase.#{phase.kind}")
+      phase.name.presence || t("budgets.phase.#{phase.kind}")
     end
 
     def start_date(phase)

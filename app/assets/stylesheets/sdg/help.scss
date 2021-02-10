@@ -1,0 +1,29 @@
+.sdg-help-content {
+  @include grid-column-gutter;
+
+  > .tabs {
+    $spacing: 0.5%;
+
+    li {
+      min-width: $sdg-icon-min-width;
+      width: calc(100% / 17 - #{$spacing});
+      margin-right: $spacing;
+
+      &:focus {
+        outline: $outline-focus;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      [aria-selected=true] img {
+        opacity: 0.15;
+      }
+
+      .sdg-goal-icon {
+        width: 100%;
+      }
+    }
+  }
+}

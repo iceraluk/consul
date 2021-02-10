@@ -20,6 +20,10 @@
     $spacing: 0.5%;
     @include sdg-goal-list($spacing);
 
+    + label {
+      @include element-invisible;
+    }
+
     legend {
       font-weight: normal;
       font-style: italic;
@@ -51,9 +55,10 @@
     }
   }
 
-  label {
+  .help-text {
     font-weight: normal;
     font-style: italic;
+    font-size: $base-font-size;
   }
 
   .input-section {
